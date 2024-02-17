@@ -1,0 +1,51 @@
+package com.company;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    private static void swap(int[] values, int i, int i1) {
+    }
+        static void combSort (int [] values){
+            double factor = 1.247;
+            int step = values.length-1;
+            while (step>=1){
+                for( int i = 0; i+step<values.length; i++){
+                    if( values[i] > values[i + step]){
+                        swap(values, i,i+step);
+                    }}
+                step/=factor;
+            }}
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите кол-во строк: ");
+        int amigo = scanner.nextInt();
+        System.out.println("Введите кол-во столбцов: ");
+        int opera = scanner.nextInt();
+        int [] [] arr = new int[amigo][opera]; //создание двумерного массива
+        for(int i =0; i < amigo; i++){
+            System.out.println("Введите элементы: ");
+            for(int j = 0; j < opera; j++){
+                arr[i][j]=scanner.nextInt();
+            }
+        }
+        for(int i = 0; i < amigo;i++){ //сортировка строк по убыванию
+            Arrays.sort(arr[i]);
+            int x = 0;
+            int y = opera - 1;
+            while (x<1){
+                int temp =arr[i][x];
+                arr[i][x] = arr[i][y];
+                arr [i][y] = temp;
+                x++;
+                y--;
+            }
+        }
+        System.out.println("Отсортированный двумерный массив: ");
+        for( int i = 0; i < amigo; i++){
+            for(int j = 0; j < opera; j++){
+                System.out.println(arr[i][j]+ "");
+            }
+            System.out.println();
+        }
+scanner.close();
